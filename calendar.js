@@ -1,3 +1,8 @@
+import {
+    hasPeriodStart,
+    togglePeriodStart
+} from "./storage.js";
+
 const monthNames = [
     "January",
     "February",
@@ -32,17 +37,22 @@ export function renderCalendar() {
     const year = currentMonth.getFullYear();
     const month = currentMonth.getMonth();
 
-    monthTitle.textContent = `${monthNames[month]} ${year}`;
+    monthTitle.textContent =
+        `${monthNames[month]} ${year}`;
 
     const firstDay = new Date(year, month, 1);
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const daysInMonth =
+        new Date(year, month + 1, 0).getDate();
 
-    const startingWeekday = firstDay.getDay();
+    const startingWeekday =
+        firstDay.getDay();
 
     let html = `
         <div class="weekday-row">
             ${weekdayLabels
-                .map(label => `<div class="weekday">${label}</div>`)
+                .map(label =>
+                    `<div class="weekday">${label}</div>`
+                )
                 .join("")}
         </div>
 
@@ -54,10 +64,19 @@ export function renderCalendar() {
     }
 
     for (let day = 1; day <= daysInMonth; day++) {
+        const dateString =
+            `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+
+        const logged =
+            hasPeriodStart(dateString);
+
         html += `
-            <div class="day">
+            <button
+                class="day ${logged ? "logged" : ""}"
+                data-date="${dateString}"
+            >
                 ${day}
-            </div>
+            </button>
         `;
     }
 
@@ -66,14 +85,32 @@ export function renderCalendar() {
     `;
 
     calendar.innerHTML = html;
+
+    document
+        .querySelectorAll("[data-date]")
+        .forEach(button => {
+            button.addEventListener("click", () => {
+                togglePeriodStart(
+                    button.dataset.date
+                );
+
+                renderCalendar();
+            });
+        });
 }
 
 export function previousMonth() {
-    currentMonth.setMonth(currentMonth.getMonth() - 1);
+    currentMonth.setMonth(
+        currentMonth.getMonth() - 1
+    );
+
     renderCalendar();
 }
 
 export function nextMonth() {
-    currentMonth.setMonth(currentMonth.getMonth() + 1);
+    currentMonth.setMonth(
+        currentMonth.getMonth() + 1
+    );
+
     renderCalendar();
 }

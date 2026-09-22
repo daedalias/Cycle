@@ -4,8 +4,6 @@ import {
     nextMonth
 } from "./calendar.js";
 
-console.log("app.js loaded");
-
 document
     .getElementById("prevMonth")
     .addEventListener("click", previousMonth);
