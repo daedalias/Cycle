@@ -1,0 +1,81 @@
+:root {
+    --background: #161616;
+    --text: #ffffff;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: system-ui, sans-serif;
+}
+
+#app {
+    padding: 24px;
+}:root {
+    --background: #161616;
+
+    --rose-dark: #8F3B58;
+    --rose-medium: #C75A7A;
+    --rose-light: #E89BB5;
+    --rose-highlight: #F8DDE6;
+
+    --text: #FFFFFF;
+    --secondary: #888888;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: system-ui, sans-serif;
+}
+
+.app {
+    max-width: 500px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.prediction {
+    margin-bottom: 32px;
+}
+
+.label {
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+.date {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.month-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.month-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+}
+
+.stats {
+    margin-top: 32px;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
