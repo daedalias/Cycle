@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cycle v12</title>
+    <title>Cycle v13</title>
 
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -14,7 +14,12 @@
 
         <section class="prediction">
             <div class="label">Next Expected</div>
-            <div class="date">September 24</div>
+<div
+    class="date"
+    id="predictionDate"
+>
+    --
+</div>
         </section>
 
         <section class="month-header">
@@ -25,22 +30,34 @@
 
         <section id="calendar"></section>
 
-        <section class="stats">
-            <div class="stat">
-                <span>Recorded Starts</span>
-                <span>0</span>
-            </div>
+<section class="stats">
 
-            <div class="stat">
-                <span>Average Cycle</span>
-                <span>--</span>
-            </div>
+    <div class="stat">
+        <span>Recorded Starts</span>
+        <span id="recordedStarts">0</span>
+    </div>
 
-            <div class="stat">
-                <span>Last Start</span>
-                <span>--</span>
-            </div>
-        </section>
+    <div class="stat">
+        <span>Average Cycle</span>
+        <span id="averageCycle">--</span>
+    </div>
+
+    <div class="stat">
+        <span>Shortest Cycle</span>
+        <span id="shortestCycle">--</span>
+    </div>
+
+    <div class="stat">
+        <span>Longest Cycle</span>
+        <span id="longestCycle">--</span>
+    </div>
+
+    <div class="stat">
+        <span>Last Start</span>
+        <span id="lastStart">--</span>
+    </div>
+
+</section>
 
     </main>
 

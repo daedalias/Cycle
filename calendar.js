@@ -91,8 +91,11 @@ export function renderCalendar() {
 
     dayButtons.forEach(button => {
         button.addEventListener("click", () => {
-            togglePeriodStart(button.dataset.date);
-            renderCalendar();
+           togglePeriodStart(button.dataset.date);
+
+renderCalendar();
+
+window.updateStats();
         });
     });
 }
