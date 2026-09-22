@@ -14,8 +14,4 @@ document
     .getElementById("nextMonth")
     .addEventListener("click", nextMonth);
 
-console.log("calling renderCalendar");
-
 renderCalendar();
-
-console.log("renderCalendar finished");
