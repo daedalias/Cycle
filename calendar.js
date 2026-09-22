@@ -48,7 +48,8 @@ export function renderCalendar() {
 
     const daysInMonth =
         new Date(year, month + 1, 0).getDate();
-
+const predictions =
+    getPredictions(3);
     let html = `
         <div class="weekday-row">
             ${weekdayLabels
@@ -68,11 +69,18 @@ export function renderCalendar() {
             formatDate(year, month, day);
 
         const logged =
-            hasPeriodStart(dateString);
+    hasPeriodStart(dateString);
+
+const predicted =
+    predictions.includes(dateString);
 
         html += `
             <button
-                class="day ${logged ? "logged" : ""}"
+               class="
+    day
+    ${logged ? "logged" : ""}
+    ${!logged && predicted ? "predicted" : ""}
+"
                 data-date="${dateString}"
             >
                 ${day}
@@ -115,3 +123,4 @@ export function nextMonth() {
 
     renderCalendar();
 }
+import { getPredictions } from "./cycleMath.js";

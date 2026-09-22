@@ -90,3 +90,30 @@ export function getNextPrediction() {
 
     return nextDate;
 }
+export function getPredictions(count = 3) {
+    const lastStart = getLastStart();
+    const averageCycle = getAverageCycle();
+
+    if (!lastStart || !averageCycle) {
+        return [];
+    }
+
+    const predictions = [];
+
+    let currentDate =
+        new Date(lastStart);
+
+    for (let i = 0; i < count; i++) {
+        currentDate = new Date(currentDate);
+
+        currentDate.setDate(
+            currentDate.getDate() + averageCycle
+        );
+
+        predictions.push(
+            currentDate.toISOString().split("T")[0]
+        );
+    }
+
+    return predictions;
+}
