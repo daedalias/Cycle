@@ -1,13 +1,13 @@
 {
   "name": "Cycle",
   "short_name": "Cycle",
-  "start_url": "./",
+  "start_url": "/Cycle/",
   "display": "standalone",
   "background_color": "#161616",
   "theme_color": "#161616",
   "icons": [
     {
-      "src": "Cycle/CycleIcon.png",
+      "src": "/Cycle/CycleIcon.png",
       "sizes": "1024x1024",
       "type": "image/png"
     }
